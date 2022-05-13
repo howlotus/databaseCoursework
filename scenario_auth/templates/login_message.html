@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body style="background-image: url('/static/images/login_message.jpg'); background-size: 100%">
+    <div class="black_bg">
+        <div class="profile_label">
+            {% if profile != 'unauthorized' %}
+                {{ profile }}
+            {% else %}
+                Не авторизован
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="restaurant_label">
+            РЕСТОРАН
+    </div>
+
+    <div class="central_rectangle">
+        <div class="main_label">
+            {{ message }}
+        </div>
+
+        <div class="links"><a class="in_link_button" href="{{url_for('main_menu_handler')}}">Главная</a> > Авторизация</div>
+
+        {% if string_value != [] %}
+            <div class="regular_text">
+                Добро пожаловать, {{ string_value }}!
+            </div>
+        {% else %}
+            <table class="table_of_buttons" style="margin-top: 5%; margin-bottom: 5%">
+            <tr>
+                <th>
+                    <a class="in_table_button" href="{{url_for('auth.login_page_handler')}}">Повторить ввод</a>
+                </th>
+            </tr>
+        </table>
+        {% endif %}
+    </div>
+</body>
+</html>

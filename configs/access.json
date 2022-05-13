@@ -1,0 +1,6 @@
+{
+  "admin": ["main_menu_handler", "exit_page_handler", "auth", "query", "order"],
+  "rest_director": ["main_menu_handler", "exit_page_handler", "auth", "query"],
+  "waiter": ["main_menu_handler", "exit_page_handler", "auth", "order"],
+  "unauthorized": ["main_menu_handler", "auth"]
+}

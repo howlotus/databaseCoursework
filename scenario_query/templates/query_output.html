@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body style="background-image: url('/static/images/query_output.jpg'); background-size: 100%">
+    <div class="black_bg">
+        <div class="profile_label">
+            {% if profile != 'unauthorized' %}
+                {{ profile }}
+            {% else %}
+                Не авторизован
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="restaurant_label">
+        РЕСТОРАН
+    </div>
+
+    <div class="central_rectangle" style="background: rgba(0, 0, 0, 0);">
+        <div class="main_label">
+            {{ string_value }}
+        </div>
+
+        <div class="links">
+            <a class="in_link_button" href="{{url_for('main_menu_handler')}}">
+                Главная
+            </a> >
+            <a class="in_link_button" href="{{url_for('query.query_menu_handler')}}">
+                Работа с запросами
+            </a> >
+            Результат
+        </div>
+
+        <div style="margin-top: 3%; margin-bottom: 3%">
+            {% if eng_keys == 0 %}
+                <div class="regular_text">
+                    {{ item_list[0] }}
+                </div>
+            {% else %}
+                 <table class="default_table">
+                    <thead>
+                        <tr>
+                            {% for key in rus_keys %}
+                                <th>{{ key }}</th>
+                            {% endfor %}
+                        </tr>
+                    <thead>
+
+                    <tbody>
+                        {% for item in item_list %}
+                            <tr>
+                                {% for key in eng_keys %}
+                                    <td>{{ item[key] }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    <tbody>
+                </table>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

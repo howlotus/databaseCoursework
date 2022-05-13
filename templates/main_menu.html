@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset = "UTF-8">
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body style="background-image: url('/static/images/main_menu.jpg'); background-size: 100%">
+        <div class="restaurant_label">
+            РЕСТОРАН
+        </div>
+
+        <div class="quote">
+            <blockquote>
+                <p>Гордость не мешает брать чаевые, но мешает благодарить за них.</p>
+                <footer>— <cite>Анри Боннар</cite></footer>
+            </blockquote>
+        </div>
+
+    <div class="black_bg" style="width: 50%;">
+        <div class="profile_label">
+            {% if profile != 'unauthorized' %}
+                {{ profile }}
+            {% else %}
+                Не авторизован
+            {% endif %}
+        </div>
+
+        <table class="table_of_buttons">
+            <tr><td><a class="in_table_button" href="{{url_for('query.query_menu_handler')}}">
+                Работа с запросами
+            </a></td></tr>
+
+            <tr><td><a class="in_table_button" href="{{url_for('auth.login_page_handler')}}">
+                Авторизация
+            </a></td></tr>
+
+            <tr><td><a class="in_table_button" href="{{url_for('order.table_choice_handler')}}">
+                Оформление заказа
+            </a></td></tr>
+
+            <tr><td><a class="in_table_button" href="{{url_for('exit_page_handler')}}">
+                Завершение работы
+            </a></td></tr>
+        </table>
+    </div>
+</body>
+</html>

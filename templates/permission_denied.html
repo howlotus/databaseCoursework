@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset = "UTF-8">
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body style="background-image: url('/static/images/permission_denied.jpg'); background-size: 100%">
+    <div class="black_bg">
+        <div class="profile_label">
+            {% if profile != 'unauthorized' %}
+                {{ profile }}
+            {% else %}
+                Не авторизован
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="restaurant_label">
+        РЕСТОРАН
+    </div>
+
+    <div class="central_rectangle">
+        <div class="main_label">
+            Доступ запрещён!
+        </div>
+
+        <div class="links"><a class="in_link_button" href="{{url_for('main_menu_handler')}}">Главная</a> > Сообщение об отсутствии доступа</div>
+
+        <div class="regular_text">Пожалуйста, авторизуйтесь через пользователя с доступом.</div>
+    </div>
+</body>
+</html>

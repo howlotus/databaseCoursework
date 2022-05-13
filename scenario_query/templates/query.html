@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body style="background-image: url('/static/images/query.jpg'); background-size: 100%">
+   <div class="black_bg">
+        <div class="profile_label">
+            {% if profile != 'unauthorized' %}
+                {{ profile }}
+            {% else %}
+                Не авторизован
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="restaurant_label">
+        РЕСТОРАН
+    </div>
+
+    <div class="central_rectangle" style="background: rgba(0, 0, 0, 0);">
+        <div class="main_label">
+            Введите месяц и год
+        </div>
+
+        <div class="links">
+            <a class="in_link_button" href="{{url_for('main_menu_handler')}}">
+                Главная
+            </a> >
+            <a class="in_link_button" href="{{url_for('query.query_menu_handler')}}">
+                Работа с запросами
+            </a> >
+            {{ string_value }}
+        </div>
+
+        <form action="" method="post" style="margin-top: 5%; margin-bottom: 5%">
+            <label for="month"></label>
+            <input type="text" placeholder="Месяц" name="value1" id="month" class="form_style">
+
+            <label for="year"></label>
+            <input type="text" placeholder="Год" name="value2" id="year" class="form_style">
+
+            <input type="submit" value="Подтвердить" class="submit_button">
+        </form>
+    </div>
+</body>
+</html>
